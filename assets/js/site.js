@@ -1,5 +1,23 @@
 function isEnglish(){return document.body.classList.contains('lang-en')}
 
+const roleTransliterations={
+  'caliph.html':{he:'חַ׳לִיפַה',en:'Khalīfa'},
+  'emir.html':{he:'אַמִיר',en:'Amīr'},
+  'sultan.html':{he:'סֻלְטָאן',en:'Sulṭān'},
+  'vizier.html':{he:'וַזִיר',en:'Wazīr'},
+  'grand-vizier.html':{he:'וַזִיר אַעְזַם',en:'Wazīr Aʿẓam'},
+  'wali.html':{he:'וַאלִי',en:'Wālī'},
+  'qadi.html':{he:'קַאדִי',en:'Qāḍī'},
+  'qadi-al-qudat.html':{he:'קַאדִי אל־קֻדַאת',en:'Qāḍī al-Qudāt'},
+  'mufti.html':{he:'מֻפְתִי',en:'Muftī'},
+  'muhtasib.html':{he:'מֻחְתַסִב',en:'Muḥtasib'},
+  'hajib.html':{he:'חַאגִ׳ב',en:'Ḥājib'},
+  'katib.html':{he:'כַּאתִב',en:'Kātib'},
+  'sahib-al-barid.html':{he:'צַאחִבּ אל־בַּרִיד',en:'Ṣāḥib al-Barīd'},
+  'sharif.html':{he:'שַׁרִיף',en:'Sharīf'},
+  'imam.html':{he:'אִמַאם',en:'Imām'}
+};
+
 function pagePrefix(){
   const path=window.location.pathname;
   if(path.includes('/roles/')||path.includes('/figures/')) return '../';
@@ -38,6 +56,19 @@ function renderUnifiedNav(){
         <button class="language-toggle" type="button" id="languageToggle">English</button>
       </div>
     </nav>`;
+}
+
+function addRoleTransliteration(){
+  if(!window.location.pathname.includes('/roles/')) return;
+  const item=roleTransliterations[currentFile()];
+  if(!item) return;
+  const hero=document.querySelector('.hero');
+  if(!hero || document.querySelector('.role-transliteration')) return;
+  const lead=hero.querySelector('.lead');
+  const block=document.createElement('div');
+  block.className='card role-transliteration';
+  block.innerHTML=`<h3 data-lang="he">תעתיק עברי מנוקד</h3><h3 data-lang="en">Vocalized Transliteration</h3><p data-lang="he"><strong>${item.he}</strong></p><p data-lang="en"><strong>${item.en}</strong></p>`;
+  if(lead) lead.insertAdjacentElement('afterend',block); else hero.appendChild(block);
 }
 
 function applyLanguage(){
@@ -84,4 +115,4 @@ function initModal(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape')c()})
 }
 
-document.addEventListener('DOMContentLoaded',()=>{renderUnifiedNav();initLanguage();initModal()});
+document.addEventListener('DOMContentLoaded',()=>{renderUnifiedNav();addRoleTransliteration();initLanguage();initModal()});
