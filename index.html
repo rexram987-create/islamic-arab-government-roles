@@ -7,17 +7,18 @@
   <meta name="description" content="אתר מחקרי דו־לשוני על תפקידי השלטון בעולם הערבי־מוסלמי לאורך ההיסטוריה | A bilingual research website on Arab and Islamic governance history." />
   <style>
     :root {
-      --bg: #fff8ec;
-      --paper: #ffffff;
-      --paper-soft: #fffdf7;
-      --ink: #1f2933;
-      --muted: #667085;
-      --gold: #b9852c;
-      --gold-soft: #f1ddbb;
-      --green: #1f6b55;
-      --green-soft: #e4f3ed;
-      --line: rgba(31, 41, 51, 0.12);
-      --shadow: 0 14px 34px rgba(76, 52, 16, 0.10);
+      --bg: #081411;
+      --bg-soft: #0f211c;
+      --paper: #132b24;
+      --paper-soft: #18362d;
+      --ink: #f6f0df;
+      --muted: #c8d2c7;
+      --gold: #d5a249;
+      --gold-soft: rgba(213, 162, 73, 0.28);
+      --green: #65c6a5;
+      --green-dark: #1f6b55;
+      --line: rgba(246, 240, 223, 0.14);
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
       --radius: 22px;
     }
 
@@ -28,141 +29,68 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(241, 221, 187, 0.85), transparent 32rem),
-        radial-gradient(circle at bottom left, rgba(228, 243, 237, 0.75), transparent 30rem),
-        linear-gradient(180deg, #fffdf7 0%, var(--bg) 48%, #fff4df 100%);
+        radial-gradient(circle at top right, rgba(213, 162, 73, 0.24), transparent 34rem),
+        radial-gradient(circle at bottom left, rgba(101, 198, 165, 0.18), transparent 32rem),
+        linear-gradient(180deg, #07100e 0%, var(--bg) 45%, #10231d 100%);
       color: var(--ink);
       line-height: 1.8;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    .skip-link {
-      position: absolute;
-      top: -80px;
-      right: 1rem;
-      background: var(--green);
-      color: white;
-      padding: .75rem 1rem;
-      border-radius: 999px;
-      z-index: 1000;
-    }
+    .skip-link { position: absolute; top: -80px; right: 1rem; background: var(--gold); color: #0b1512; padding: .75rem 1rem; border-radius: 999px; z-index: 1000; font-weight: 900; }
     .skip-link:focus { top: 1rem; }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(14px);
-      background: rgba(255, 253, 247, 0.92);
-      border-bottom: 1px solid var(--line);
-    }
+    header { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(14px); background: rgba(8, 20, 17, 0.88); border-bottom: 1px solid var(--line); }
 
-    .nav {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: .85rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      font-weight: 900;
-      color: var(--green);
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--green), #3a967d);
-      color: #fff8ec;
-      box-shadow: 0 8px 20px rgba(31, 107, 85, .22);
-      font-size: 1.25rem;
-    }
+    .nav { max-width: 1180px; margin: 0 auto; padding: .85rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: .65rem; font-weight: 900; color: var(--green); }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: linear-gradient(135deg, var(--green-dark), #2f8d74); color: #fff4d6; box-shadow: 0 8px 22px rgba(0, 0, 0, .30); font-size: 1.25rem; }
 
     .nav-links { display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; justify-content: center; }
-    .nav-links a, .language-toggle {
-      border: 1px solid transparent;
-      border-radius: 999px;
-      padding: .5rem .8rem;
-      color: #344054;
-      font-weight: 700;
-      background: transparent;
-      cursor: pointer;
-      font-size: .95rem;
-    }
-    .nav-links a:hover, .language-toggle:hover { border-color: var(--gold-soft); background: #fff4df; color: #744f17; }
+    .nav-links a, .language-toggle { border: 1px solid transparent; border-radius: 999px; padding: .5rem .8rem; color: var(--muted); font-weight: 700; background: transparent; cursor: pointer; font-size: .95rem; }
+    .nav-links a:hover, .language-toggle:hover { border-color: var(--gold-soft); background: rgba(213, 162, 73, .12); color: #ffe3a1; }
 
     main { max-width: 1180px; margin: 0 auto; padding: 0 1rem 4rem; }
+    .hero { padding: 5.5rem 0 3rem; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); gap: 2rem; align-items: center; }
+    .eyebrow { display: inline-flex; color: #ffe3a1; background: rgba(213, 162, 73, .12); border: 1px solid var(--gold-soft); border-radius: 999px; padding: .35rem .75rem; font-weight: 800; margin-bottom: 1rem; }
 
-    .hero {
-      padding: 5.5rem 0 3rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      color: #744f17;
-      background: #fff0d3;
-      border: 1px solid var(--gold-soft);
-      border-radius: 999px;
-      padding: .35rem .75rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    h1 { margin: 0; font-size: clamp(2.25rem, 7vw, 5.2rem); line-height: 1.05; letter-spacing: -.055em; color: #17231f; }
-    .hero p { max-width: 760px; font-size: clamp(1.08rem, 2.2vw, 1.28rem); color: #475467; margin: 1.25rem 0 0; }
+    h1 { margin: 0; font-size: clamp(2.25rem, 7vw, 5.2rem); line-height: 1.05; letter-spacing: -.055em; color: #fff7df; text-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .hero p { max-width: 760px; font-size: clamp(1.08rem, 2.2vw, 1.28rem); color: var(--muted); margin: 1.25rem 0 0; }
 
     .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.7rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: .85rem 1.15rem; font-weight: 900; }
-    .btn-primary { background: var(--green); color: white; box-shadow: 0 14px 26px rgba(31, 107, 85, .20); }
-    .btn-secondary { background: #ffffff; color: var(--green); border: 1px solid rgba(31, 107, 85, .18); }
+    .btn-primary { background: var(--gold); color: #0b1512; box-shadow: 0 14px 26px rgba(213, 162, 73, .18); }
+    .btn-secondary { background: rgba(255,255,255,.08); color: #fff7df; border: 1px solid var(--line); }
 
-    .hero-card, .panel, .info-card, .role-card, .figure-card, .term-card {
-      background: rgba(255, 255, 255, .88);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-
+    .hero-card, .panel, .info-card, .role-card, .figure-card, .term-card { background: rgba(19, 43, 36, .82); border: 1px solid var(--line); box-shadow: var(--shadow); }
     .hero-card { border-radius: var(--radius); padding: 1.25rem; }
     .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
-    .stat { background: #fffdf7; border: 1px solid var(--line); border-radius: 18px; padding: 1rem; min-height: 100px; }
-    .stat strong { display: block; font-size: 2rem; color: #744f17; line-height: 1; }
+    .stat { background: rgba(255,255,255,.055); border: 1px solid var(--line); border-radius: 18px; padding: 1rem; min-height: 100px; }
+    .stat strong { display: block; font-size: 2rem; color: #ffd88b; line-height: 1; }
     .stat span { color: var(--muted); font-weight: 700; }
 
     section { padding: 3.2rem 0; }
     .section-title { margin-bottom: 1.25rem; }
-    h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.15; color: #182620; }
+    h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.15; color: #fff7df; }
     .section-title p { max-width: 720px; margin: .4rem 0 0; color: var(--muted); }
 
     .panel { border-radius: var(--radius); padding: 1.25rem; }
     .intro-grid, .roles-grid, .figures-grid, .glossary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .info-card, .role-card, .figure-card, .term-card { border-radius: 18px; padding: 1.05rem; }
     .info-card h3, .role-card h3, .term-card h3 { margin: 0 0 .4rem; color: var(--green); }
-    .info-card p, .role-card p, .term-card p { margin: 0; color: #475467; }
+    .info-card p, .role-card p, .term-card p { margin: 0; color: var(--muted); }
 
     .timeline { display: grid; grid-template-columns: 320px 1fr; gap: 1rem; }
     .timeline-buttons { display: grid; gap: .55rem; align-content: start; }
-    .timeline-btn { text-align: start; border: 1px solid var(--line); background: #ffffff; border-radius: 16px; padding: .85rem; cursor: pointer; font-weight: 900; color: #344054; }
-    .timeline-btn:hover, .timeline-btn.active { background: var(--green); color: white; border-color: var(--green); }
-    .timeline-detail h3 { margin-top: 0; font-size: 1.6rem; color: #744f17; }
-    .timeline-detail p { color: #475467; }
+    .timeline-btn { text-align: start; border: 1px solid var(--line); background: rgba(255,255,255,.055); border-radius: 16px; padding: .85rem; cursor: pointer; font-weight: 900; color: var(--muted); }
+    .timeline-btn:hover, .timeline-btn.active { background: var(--gold); color: #0b1512; border-color: var(--gold); }
+    .timeline-detail h3 { margin-top: 0; font-size: 1.6rem; color: #ffd88b; }
+    .timeline-detail p { color: var(--muted); }
 
     .figure-card { padding: .75rem; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
-    .figure-card:hover, .role-card:hover, .term-card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(76, 52, 16, .14); }
-    .figure-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; background: linear-gradient(135deg, #e4f3ed, #fff0d3); border: 1px solid var(--line); }
+    .figure-card:hover, .role-card:hover, .term-card:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(0, 0, 0, .36); }
+    .figure-image { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; background: linear-gradient(135deg, rgba(101,198,165,.18), rgba(213,162,73,.18)); border: 1px solid var(--line); }
     .figure-card h3 { margin: .75rem .25rem .1rem; color: var(--green); }
     .figure-card p { margin: 0 .25rem .25rem; color: var(--muted); font-weight: 700; }
 
@@ -173,25 +101,19 @@
 
     .bilingual-note { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
-    footer {
-      background: linear-gradient(180deg, #fffdf7 0%, #fff0d3 100%);
-      color: var(--ink);
-      padding: 2.5rem 1rem;
-      text-align: center;
-      border-top: 1px solid var(--gold-soft);
-    }
-    footer p { margin: .3rem 0; color: #475467; }
-    footer strong { color: var(--green); }
-    footer a { color: #744f17; font-weight: 900; }
+    footer { background: #06100d; color: var(--ink); padding: 2.5rem 1rem; text-align: center; border-top: 1px solid var(--gold-soft); }
+    footer p { margin: .3rem 0; color: var(--muted); }
+    footer strong { color: #ffd88b; }
+    footer a { color: var(--green); font-weight: 900; }
 
-    .modal { position: fixed; inset: 0; background: rgba(255, 248, 236, .88); display: none; align-items: center; justify-content: center; padding: 1rem; z-index: 999; backdrop-filter: blur(8px); }
+    .modal { position: fixed; inset: 0; background: rgba(0, 0, 0, .78); display: none; align-items: center; justify-content: center; padding: 1rem; z-index: 999; backdrop-filter: blur(8px); }
     .modal.open { display: flex; }
-    .modal-box { width: min(920px, 100%); max-height: 92vh; overflow: auto; background: #ffffff; border-radius: 24px; box-shadow: 0 30px 80px rgba(76, 52, 16, .22); position: relative; border: 1px solid var(--line); }
-    .modal-image { width: 100%; max-height: 58vh; object-fit: cover; display: block; background: #fff0d3; }
+    .modal-box { width: min(920px, 100%); max-height: 92vh; overflow: auto; background: #10231d; border-radius: 24px; box-shadow: 0 30px 80px rgba(0,0,0,.50); position: relative; border: 1px solid var(--line); }
+    .modal-image { width: 100%; max-height: 58vh; object-fit: cover; display: block; background: #132b24; }
     .modal-content { padding: 1.25rem; }
     .modal-content h3 { margin: 0 0 .35rem; font-size: 1.8rem; color: var(--green); }
-    .modal-content p { color: #475467; }
-    .close-modal { position: absolute; top: .75rem; inset-inline-end: .75rem; border: 0; border-radius: 999px; width: 44px; height: 44px; background: #ffffff; color: #14231f; font-size: 1.5rem; cursor: pointer; box-shadow: 0 8px 20px rgba(76, 52, 16, .18); }
+    .modal-content p { color: var(--muted); }
+    .close-modal { position: absolute; top: .75rem; inset-inline-end: .75rem; border: 0; border-radius: 999px; width: 44px; height: 44px; background: #fff7df; color: #0b1512; font-size: 1.5rem; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,.25); }
 
     [data-lang="en"] { display: none; }
     body.lang-en [data-lang="he"] { display: none; }
@@ -199,18 +121,8 @@
     body.lang-en { direction: ltr; }
     body.lang-en .timeline-btn { text-align: left; }
 
-    @media (max-width: 920px) {
-      .hero, .timeline, .bilingual-note { grid-template-columns: 1fr; }
-      .intro-grid, .roles-grid, .figures-grid, .glossary-grid { grid-template-columns: repeat(2, 1fr); }
-      .nav { align-items: flex-start; flex-direction: column; }
-      .nav-links { justify-content: flex-start; }
-    }
-    @media (max-width: 620px) {
-      main { padding-inline: .85rem; }
-      .hero { padding-top: 3rem; }
-      .intro-grid, .roles-grid, .figures-grid, .glossary-grid, .stat-grid { grid-template-columns: 1fr; }
-      .nav-links a, .language-toggle { font-size: .88rem; padding: .45rem .65rem; }
-    }
+    @media (max-width: 920px) { .hero, .timeline, .bilingual-note { grid-template-columns: 1fr; } .intro-grid, .roles-grid, .figures-grid, .glossary-grid { grid-template-columns: repeat(2, 1fr); } .nav { align-items: flex-start; flex-direction: column; } .nav-links { justify-content: flex-start; } }
+    @media (max-width: 620px) { main { padding-inline: .85rem; } .hero { padding-top: 3rem; } .intro-grid, .roles-grid, .figures-grid, .glossary-grid, .stat-grid { grid-template-columns: 1fr; } .nav-links a, .language-toggle { font-size: .88rem; padding: .45rem .65rem; } }
   </style>
 </head>
 <body>
@@ -242,71 +154,24 @@
           <a class="btn btn-secondary" href="#roles" data-lang="he">לתפקידי השלטון</a><a class="btn btn-secondary" href="#roles" data-lang="en">Governance Roles</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="נתוני האתר">
-        <div class="stat-grid">
-          <div class="stat"><strong>15+</strong><span data-lang="he">תפקידי שלטון</span><span data-lang="en">Governance roles</span></div>
-          <div class="stat"><strong>9</strong><span data-lang="he">תקופות היסטוריות</span><span data-lang="en">Historical periods</span></div>
-          <div class="stat"><strong>12+</strong><span data-lang="he">מונחי יסוד</span><span data-lang="en">Glossary terms</span></div>
-          <div class="stat"><strong>2</strong><span data-lang="he">שפות באתר</span><span data-lang="en">Website languages</span></div>
-        </div>
-      </aside>
+      <aside class="hero-card" aria-label="נתוני האתר"><div class="stat-grid"><div class="stat"><strong>15+</strong><span data-lang="he">תפקידי שלטון</span><span data-lang="en">Governance roles</span></div><div class="stat"><strong>9</strong><span data-lang="he">תקופות היסטוריות</span><span data-lang="en">Historical periods</span></div><div class="stat"><strong>12+</strong><span data-lang="he">מונחי יסוד</span><span data-lang="en">Glossary terms</span></div><div class="stat"><strong>2</strong><span data-lang="he">שפות באתר</span><span data-lang="en">Website languages</span></div></div></aside>
     </section>
 
-    <section id="intro">
-      <div class="section-title">
-        <h2 data-lang="he">מבוא</h2><h2 data-lang="en">Introduction</h2>
-        <p data-lang="he">האתר מציג את התפתחות מוסדות השלטון בעולם הערבי־מוסלמי, ואת הדרך שבה תפקידים דתיים, משפטיים, צבאיים ומנהליים השתלבו במערכות שלטון שונות.</p>
-        <p data-lang="en">The website presents the development of governing institutions in Arab and Islamic history and explains how religious, legal, military, and administrative offices interacted within different political systems.</p>
-      </div>
-      <div class="intro-grid">
-        <article class="info-card"><h3 data-lang="he">ערבים</h3><h3 data-lang="en">Arabs</h3><p data-lang="he">קבוצה לשונית־תרבותית שמקורה בחצי האי ערב ובאזורים סמוכים, שהייתה כוח מרכזי בראשית התפשטות האסלאם.</p><p data-lang="en">A linguistic and cultural group originating in Arabia and neighboring regions, central to the early expansion of Islam.</p></article>
-        <article class="info-card"><h3 data-lang="he">מוסלמים</h3><h3 data-lang="en">Muslims</h3><p data-lang="he">בני דת האסלאם. לאורך ההיסטוריה הצטרפו לעולם המוסלמי עמים רבים שאינם ערבים.</p><p data-lang="en">Followers of Islam. Many non-Arab peoples became part of the Muslim world throughout history.</p></article>
-        <article class="info-card"><h3 data-lang="he">אימפריות אסלאמיות</h3><h3 data-lang="en">Islamic Empires</h3><p data-lang="he">מסגרות מדיניות שבהן האסלאם שימש מקור לגיטימציה, משפט, תרבות וסמכות שלטונית.</p><p data-lang="en">Political frameworks in which Islam served as a source of legitimacy, law, culture, and authority.</p></article>
-      </div>
-    </section>
-
-    <section id="timeline">
-      <div class="section-title"><h2 data-lang="he">ציר זמן אינטראקטיבי</h2><h2 data-lang="en">Interactive Timeline</h2><p data-lang="he">לחצו על תקופה כדי להציג את מאפייני השלטון המרכזיים שלה.</p><p data-lang="en">Click a period to display its main governance features.</p></div>
-      <div class="panel timeline"><div class="timeline-buttons" id="timelineButtons"></div><article class="timeline-detail" id="timelineDetail" aria-live="polite"></article></div>
-    </section>
-
-    <section id="roles">
-      <div class="section-title"><h2 data-lang="he">תפקידי שלטון מרכזיים</h2><h2 data-lang="en">Major Governance Roles</h2><p data-lang="he">כרטיסי פתיחה לתפקידים המרכזיים שיורחבו בהמשך האתר.</p><p data-lang="en">Introductory cards for the main roles that will be expanded later in the website.</p></div>
-      <div class="roles-grid" id="rolesGrid"></div>
-    </section>
-
-    <section id="glossary">
-      <div class="section-title"><h2 data-lang="he">מילון מונחים אינטראקטיבי</h2><h2 data-lang="en">Interactive Glossary</h2><p data-lang="he">פתחו כל מונח כדי לקרוא הסבר קצר.</p><p data-lang="en">Open each term to read a short explanation.</p></div>
-      <div class="glossary-grid" id="glossaryGrid"></div>
-    </section>
-
-    <section id="figures">
-      <div class="section-title"><h2 data-lang="he">דמויות מפתח היסטוריות</h2><h2 data-lang="en">Key Historical Figures</h2><p data-lang="he">לחיצה על תמונה תפתח חלון צף עם פרטים על הדמות. בהמשך ניתן להחליף את התמונות בקבצים אמיתיים בתיקייה assets/images/figures.</p><p data-lang="en">Click an image to open a modal with details. Later, the placeholder images can be replaced with real files in assets/images/figures.</p></div>
-      <div class="figures-grid" id="figuresGrid"></div>
-    </section>
-
-    <section id="bilingual">
-      <div class="panel bilingual-note">
-        <div><h2 data-lang="he">עברית</h2><h2 data-lang="en">Hebrew</h2><p data-lang="he">הגרסה העברית תישאר בכיוון כתיבה מימין לשמאל ותשמש כבסיס המחקרי הראשי של האתר.</p><p data-lang="en">The Hebrew version keeps a right-to-left layout and serves as the main research foundation of the website.</p></div>
-        <div><h2 data-lang="he">English</h2><h2 data-lang="en">English</h2><p data-lang="he">הגרסה האנגלית תאפשר לקוראים מחוץ לישראל להכיר את המונחים, התקופות והתפקידים המרכזיים.</p><p data-lang="en">The English version makes the core terms, periods, and offices accessible to readers outside Hebrew-speaking audiences.</p></div>
-      </div>
-    </section>
+    <section id="intro"><div class="section-title"><h2 data-lang="he">מבוא</h2><h2 data-lang="en">Introduction</h2><p data-lang="he">האתר מציג את התפתחות מוסדות השלטון בעולם הערבי־מוסלמי, ואת הדרך שבה תפקידים דתיים, משפטיים, צבאיים ומנהליים השתלבו במערכות שלטון שונות.</p><p data-lang="en">The website presents the development of governing institutions in Arab and Islamic history and explains how religious, legal, military, and administrative offices interacted within different political systems.</p></div><div class="intro-grid"><article class="info-card"><h3 data-lang="he">ערבים</h3><h3 data-lang="en">Arabs</h3><p data-lang="he">קבוצה לשונית־תרבותית שמקורה בחצי האי ערב ובאזורים סמוכים, שהייתה כוח מרכזי בראשית התפשטות האסלאם.</p><p data-lang="en">A linguistic and cultural group originating in Arabia and neighboring regions, central to the early expansion of Islam.</p></article><article class="info-card"><h3 data-lang="he">מוסלמים</h3><h3 data-lang="en">Muslims</h3><p data-lang="he">בני דת האסלאם. לאורך ההיסטוריה הצטרפו לעולם המוסלמי עמים רבים שאינם ערבים.</p><p data-lang="en">Followers of Islam. Many non-Arab peoples became part of the Muslim world throughout history.</p></article><article class="info-card"><h3 data-lang="he">אימפריות אסלאמיות</h3><h3 data-lang="en">Islamic Empires</h3><p data-lang="he">מסגרות מדיניות שבהן האסלאם שימש מקור לגיטימציה, משפט, תרבות וסמכות שלטונית.</p><p data-lang="en">Political frameworks in which Islam served as a source of legitimacy, law, culture, and authority.</p></article></div></section>
+    <section id="timeline"><div class="section-title"><h2 data-lang="he">ציר זמן אינטראקטיבי</h2><h2 data-lang="en">Interactive Timeline</h2><p data-lang="he">לחצו על תקופה כדי להציג את מאפייני השלטון המרכזיים שלה.</p><p data-lang="en">Click a period to display its main governance features.</p></div><div class="panel timeline"><div class="timeline-buttons" id="timelineButtons"></div><article class="timeline-detail" id="timelineDetail" aria-live="polite"></article></div></section>
+    <section id="roles"><div class="section-title"><h2 data-lang="he">תפקידי שלטון מרכזיים</h2><h2 data-lang="en">Major Governance Roles</h2><p data-lang="he">כרטיסי פתיחה לתפקידים המרכזיים שיורחבו בהמשך האתר.</p><p data-lang="en">Introductory cards for the main roles that will be expanded later in the website.</p></div><div class="roles-grid" id="rolesGrid"></div></section>
+    <section id="glossary"><div class="section-title"><h2 data-lang="he">מילון מונחים אינטראקטיבי</h2><h2 data-lang="en">Interactive Glossary</h2><p data-lang="he">פתחו כל מונח כדי לקרוא הסבר קצר.</p><p data-lang="en">Open each term to read a short explanation.</p></div><div class="glossary-grid" id="glossaryGrid"></div></section>
+    <section id="figures"><div class="section-title"><h2 data-lang="he">דמויות מפתח היסטוריות</h2><h2 data-lang="en">Key Historical Figures</h2><p data-lang="he">לחיצה על תמונה תפתח חלון צף עם פרטים על הדמות. בהמשך ניתן להחליף את התמונות בקבצים אמיתיים בתיקייה assets/images/figures.</p><p data-lang="en">Click an image to open a modal with details. Later, the placeholder images can be replaced with real files in assets/images/figures.</p></div><div class="figures-grid" id="figuresGrid"></div></section>
+    <section id="bilingual"><div class="panel bilingual-note"><div><h2 data-lang="he">עברית</h2><h2 data-lang="en">Hebrew</h2><p data-lang="he">הגרסה העברית תישאר בכיוון כתיבה מימין לשמאל ותשמש כבסיס המחקרי הראשי של האתר.</p><p data-lang="en">The Hebrew version keeps a right-to-left layout and serves as the main research foundation of the website.</p></div><div><h2 data-lang="he">English</h2><h2 data-lang="en">English</h2><p data-lang="he">הגרסה האנגלית תאפשר לקוראים מחוץ לישראל להכיר את המונחים, התקופות והתפקידים המרכזיים.</p><p data-lang="en">The English version makes the core terms, periods, and offices accessible to readers outside Hebrew-speaking audiences.</p></div></div></section>
   </main>
 
-  <div class="modal" id="figureModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-box"><button class="close-modal" type="button" id="closeModal" aria-label="סגור">×</button><img class="modal-image" id="modalImage" src="" alt="" /><div class="modal-content"><h3 id="modalTitle"></h3><p id="modalYears"></p><p id="modalDescription"></p></div></div>
-  </div>
-
-  <footer>
-    <p><strong data-lang="he">האתר נבנה על ידי ChatGPT ורם</strong><strong data-lang="en">Website built by ChatGPT and Ram</strong></p>
-    <p data-lang="he">פרויקט מחקרי דו־לשוני לצורכי לימוד, מחקר והעשרה.</p><p data-lang="en">A bilingual research project for learning, study, and cultural enrichment.</p>
-    <p><a href="#top">↑ <span data-lang="he">חזרה לראש העמוד</span><span data-lang="en">Back to top</span></a></p>
-  </footer>
+  <div class="modal" id="figureModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><button class="close-modal" type="button" id="closeModal" aria-label="סגור">×</button><img class="modal-image" id="modalImage" src="" alt="" /><div class="modal-content"><h3 id="modalTitle"></h3><p id="modalYears"></p><p id="modalDescription"></p></div></div></div>
+  <footer><p><strong data-lang="he">האתר נבנה על ידי ChatGPT ורם</strong><strong data-lang="en">Website built by ChatGPT and Ram</strong></p><p data-lang="he">פרויקט מחקרי דו־לשוני לצורכי לימוד, מחקר והעשרה.</p><p data-lang="en">A bilingual research project for learning, study, and cultural enrichment.</p><p><a href="#top">↑ <span data-lang="he">חזרה לראש העמוד</span><span data-lang="en">Back to top</span></a></p></footer>
 
   <script>
     const data = {
       timeline: [
-        { years: '622–632', heTitle: 'מדינת מוחמד במדינה', enTitle: "Muhammad’s Community-State in Medina", heText: 'קהילה דתית־מדינית חדשה שבה ההנהגה שילבה שיפוט, פיקוד, תיווך שבטי וניהול ציבורי.', enText: 'A new religious-political community combining judgment, command, tribal mediation, and public leadership.' },
+        { years: '622–632', heTitle: 'מדינת מוחמד במדינה', enTitle: 'Muhammad’s Community-State in Medina', heText: 'קהילה דתית־מדינית חדשה שבה ההנהגה שילבה שיפוט, פיקוד, תיווך שבטי וניהול ציבורי.', enText: 'A new religious-political community combining judgment, command, tribal mediation, and public leadership.' },
         { years: '632–661', heTitle: 'הח׳ליפות הראשידונית', enTitle: 'The Rashidun Caliphate', heText: 'נוצר תפקיד הח׳ליף כמנהיג הקהילה לאחר מות מוחמד, לצד התפשטות צבאית מהירה.', enText: 'The office of the caliph emerged after Muhammad, alongside rapid military expansion.' },
         { years: '661–750', heTitle: 'הח׳ליפות האומיית', enTitle: 'The Umayyad Caliphate', heText: 'מרכז השלטון עבר לדמשק, והתחזקו המושלים, הצבא, הדיוואנים ומערכות המיסוי.', enText: 'The center moved to Damascus, while governors, military structures, diwans, and taxation systems became stronger.' },
         { years: '750–1258', heTitle: 'הח׳ליפות העבאסית', enTitle: 'The Abbasid Caliphate', heText: 'בגדאד הפכה למרכז שלטוני ותרבותי, ותפקיד הווזיר והבירוקרטיה התחזקו מאוד.', enText: 'Baghdad became a political and cultural center; the vizierate and bureaucracy grew significantly.' },
@@ -316,109 +181,24 @@
         { years: '1299–1922', heTitle: 'האימפריה העות׳מאנית', enTitle: 'The Ottoman Empire', heText: 'מערכת שלטון רחבה עם סולטאן, וזיר גדול, דיוואן אימפריאלי, מושלים, יניצ׳רים ורפורמות מודרניות.', enText: 'A vast imperial system with a sultan, grand vizier, imperial diwan, governors, janissaries, and modern reforms.' },
         { years: 'Modern Era', heTitle: 'העת החדשה', enTitle: 'The Modern Era', heText: 'מדינות מוסלמיות רבות עברו לחוקות, פרלמנטים, משרדי ממשלה ותארים מודרניים.', enText: 'Many Muslim societies moved toward constitutions, parliaments, ministries, and modern political offices.' }
       ],
-      roles: [
-        ['ח׳ליף', 'Caliph', 'خليفة', 'מנהיג עליון וסמלי של הקהילה המוסלמית לאחר מות מוחמד.', 'Supreme and symbolic leader of the Muslim community after Muhammad.'],
-        ['אמיר', 'Emir', 'أمير', 'מפקד, מושל אזורי או שליט מקומי.', 'A commander, regional governor, or local ruler.'],
-        ['סולטאן', 'Sultan', 'سلطان', 'שליט בעל כוח פוליטי וצבאי ממשי.', 'A ruler holding practical political and military power.'],
-        ['וזיר', 'Vizier', 'وزير', 'שר ראשי, יועץ בכיר ומנהל המנגנון השלטוני.', 'Chief minister, senior adviser, and administrator.'],
-        ['ואלי', 'Wali', 'والي', 'מושל מחוז מטעם השלטון המרכזי.', 'Provincial governor appointed by the central authority.'],
-        ['קאדי', 'Qadi', 'قاضي', 'שופט הפועל לפי המשפט האסלאמי.', 'A judge operating according to Islamic law.'],
-        ['מופתי', 'Mufti', 'مفتي', 'חכם הלכה המוציא חוות דעת משפטית־דתית.', 'A jurist issuing legal-religious opinions.'],
-        ['מוחתסב', 'Muhtasib', 'محتسب', 'מפקח על השוק, המידות, המשקלות והסדר הציבורי.', 'Inspector of markets, measures, weights, and public order.'],
-        ['דיוואן', 'Diwan', 'ديوان', 'משרד, לשכה או מחלקת ממשל.', 'An office, bureau, archive, or government department.']
-      ],
-      glossary: [
-        ['אומה', 'Umma', 'הקהילה המוסלמית הכוללת; בראשיתה גם מסגרת דתית וגם פוליטית.', 'The Muslim community as a whole; originally both a religious and political framework.'],
-        ['שריעה', 'Sharia', 'הדרך הדתית־משפטית של האסלאם.', 'The religious-legal path or law of Islam.'],
-        ['פיקה', 'Fiqh', 'המשפט האסלאמי כפי שפותח בידי חכמים ומשפטנים.', 'Islamic jurisprudence developed by scholars and jurists.'],
-        ['פתווה', 'Fatwa', 'חוות דעת הלכתית של מופתי.', 'A legal-religious opinion issued by a mufti.'],
-        ['ח׳ראג׳', 'Kharaj', 'מס קרקע שהיה מקור הכנסה מרכזי באימפריות חקלאיות.', 'A land tax that became a central source of revenue in agrarian empires.'],
-        ['ג׳זיה', 'Jizya', 'מס שהוטל בתקופות שונות על בני חסות לא־מוסלמים.', 'A tax applied in different periods to protected non-Muslim communities.'],
-        ['זקאת', 'Zakat', 'חובת צדקה דתית באסלאם.', 'The Islamic religious duty of almsgiving.'],
-        ['ווקף', 'Waqf', 'הקדש דתי או חברתי למטרות ציבוריות.', 'A religious or social endowment for public purposes.'],
-        ['חִסבה', 'Hisba', 'מערכת פיקוח על השוק, המסחר והמוסר הציבורי.', 'A system of supervision over markets, commerce, and public morality.']
-      ],
-      figures: [
-        { heName: 'אבו בכר אל־צדיק', enName: 'Abu Bakr al-Siddiq', years: '573–634', file: 'abu-bakr-al-siddiq.jpg', heDesc: 'הח׳ליף הראשון לאחר מות מוחמד, ודמות מכוננת בהבחנה בין נבואה לבין הנהגה פוליטית־דתית.', enDesc: 'The first caliph after Muhammad, formative in distinguishing prophecy from political-religious leadership.' },
-        { heName: 'עבד אל־רחמן הראשון', enName: 'Abd al-Rahman I', years: '731–788', file: 'abd-al-rahman-i.jpg', heDesc: 'מייסד אמירות קורדובה, ודוגמה לתואר אמיר כשליט עצמאי בפועל.', enDesc: 'Founder of the Emirate of Cordoba and an example of the emir as a practically independent ruler.' },
-        { heName: 'מחמוד מע׳זנה', enName: 'Mahmud of Ghazni', years: '971–1030', file: 'mahmud-of-ghazni.jpg', heDesc: 'שליט מרכזי המזוהה עם עליית תואר הסולטאן ככוח פוליטי וצבאי.', enDesc: 'A major ruler associated with the rise of the title sultan as a political and military authority.' },
-        { heName: 'ניזאם אל־מולכ', enName: 'Nizam al-Mulk', years: '1018–1092', file: 'nizam-al-mulk.jpg', heDesc: 'וזיר סלג׳וקי חשוב ומחבר סיאסת נאמה, מן המעצבים של המנהל האסלאמי־פרסי.', enDesc: 'Influential Seljuk vizier and author of Siyasatnama, a key figure in Islamic-Persian administration.' },
-        { heName: 'סוקולו מהמד פאשה', enName: 'Sokollu Mehmed Pasha', years: '1506–1579', file: 'sokollu-mehmed-pasha.jpg', heDesc: 'וזיר גדול עות׳מאני רב־עוצמה, הממחיש את מרכזיות התפקיד בניהול האימפריה.', enDesc: 'A powerful Ottoman grand vizier illustrating the office’s central role in imperial governance.' },
-        { heName: 'אל־חג׳אג׳ בן יוסף', enName: 'Al-Hajjaj ibn Yusuf', years: '661–714', file: 'al-hajjaj-ibn-yusuf.jpg', heDesc: 'מושל עיראק מטעם האומיים, מן הדוגמאות הבולטות לכוחו של ואלי.', enDesc: 'Umayyad governor of Iraq and one of the clearest examples of the power of a wali.' }
-      ]
+      roles: [['ח׳ליף','Caliph','خليفة','מנהיג עליון וסמלי של הקהילה המוסלמית לאחר מות מוחמד.','Supreme and symbolic leader of the Muslim community after Muhammad.'],['אמיר','Emir','أمير','מפקד, מושל אזורי או שליט מקומי.','A commander, regional governor, or local ruler.'],['סולטאן','Sultan','سلطان','שליט בעל כוח פוליטי וצבאי ממשי.','A ruler holding practical political and military power.'],['וזיר','Vizier','وزير','שר ראשי, יועץ בכיר ומנהל המנגנון השלטוני.','Chief minister, senior adviser, and administrator.'],['ואלי','Wali','والي','מושל מחוז מטעם השלטון המרכזי.','Provincial governor appointed by the central authority.'],['קאדי','Qadi','قاضي','שופט הפועל לפי המשפט האסלאמי.','A judge operating according to Islamic law.'],['מופתי','Mufti','مفتي','חכם הלכה המוציא חוות דעת משפטית־דתית.','A jurist issuing legal-religious opinions.'],['מוחתסב','Muhtasib','محتسب','מפקח על השוק, המידות, המשקלות והסדר הציבורי.','Inspector of markets, measures, weights, and public order.'],['דיוואן','Diwan','ديوان','משרד, לשכה או מחלקת ממשל.','An office, bureau, archive, or government department.']],
+      glossary: [['אומה','Umma','הקהילה המוסלמית הכוללת; בראשיתה גם מסגרת דתית וגם פוליטית.','The Muslim community as a whole; originally both a religious and political framework.'],['שריעה','Sharia','הדרך הדתית־משפטית של האסלאם.','The religious-legal path or law of Islam.'],['פיקה','Fiqh','המשפט האסלאמי כפי שפותח בידי חכמים ומשפטנים.','Islamic jurisprudence developed by scholars and jurists.'],['פתווה','Fatwa','חוות דעת הלכתית של מופתי.','A legal-religious opinion issued by a mufti.'],['ח׳ראג׳','Kharaj','מס קרקע שהיה מקור הכנסה מרכזי באימפריות חקלאיות.','A land tax that became a central source of revenue in agrarian empires.'],['ג׳זיה','Jizya','מס שהוטל בתקופות שונות על בני חסות לא־מוסלמים.','A tax applied in different periods to protected non-Muslim communities.'],['זקאת','Zakat','חובת צדקה דתית באסלאם.','The Islamic religious duty of almsgiving.'],['ווקף','Waqf','הקדש דתי או חברתי למטרות ציבוריות.','A religious or social endowment for public purposes.'],['חִסבה','Hisba','מערכת פיקוח על השוק, המסחר והמוסר הציבורי.','A system of supervision over markets, commerce, and public morality.']],
+      figures: [{ heName:'אבו בכר אל־צדיק', enName:'Abu Bakr al-Siddiq', years:'573–634', file:'abu-bakr-al-siddiq.jpg', heDesc:'הח׳ליף הראשון לאחר מות מוחמד, ודמות מכוננת בהבחנה בין נבואה לבין הנהגה פוליטית־דתית.', enDesc:'The first caliph after Muhammad, formative in distinguishing prophecy from political-religious leadership.' },{ heName:'עבד אל־רחמן הראשון', enName:'Abd al-Rahman I', years:'731–788', file:'abd-al-rahman-i.jpg', heDesc:'מייסד אמירות קורדובה, ודוגמה לתואר אמיר כשליט עצמאי בפועל.', enDesc:'Founder of the Emirate of Cordoba and an example of the emir as a practically independent ruler.' },{ heName:'מחמוד מע׳זנה', enName:'Mahmud of Ghazni', years:'971–1030', file:'mahmud-of-ghazni.jpg', heDesc:'שליט מרכזי המזוהה עם עליית תואר הסולטאן ככוח פוליטי וצבאי.', enDesc:'A major ruler associated with the rise of the title sultan as a political and military authority.' },{ heName:'ניזאם אל־מולכ', enName:'Nizam al-Mulk', years:'1018–1092', file:'nizam-al-mulk.jpg', heDesc:'וזיר סלג׳וקי חשוב ומחבר סיאסת נאמה, מן המעצבים של המנהל האסלאמי־פרסי.', enDesc:'Influential Seljuk vizier and author of Siyasatnama, a key figure in Islamic-Persian administration.' },{ heName:'סוקולו מהמד פאשה', enName:'Sokollu Mehmed Pasha', years:'1506–1579', file:'sokollu-mehmed-pasha.jpg', heDesc:'וזיר גדול עות׳מאני רב־עוצמה, הממחיש את מרכזיות התפקיד בניהול האימפריה.', enDesc:'A powerful Ottoman grand vizier illustrating the office’s central role in imperial governance.' },{ heName:'אל־חג׳אג׳ בן יוסף', enName:'Al-Hajjaj ibn Yusuf', years:'661–714', file:'al-hajjaj-ibn-yusuf.jpg', heDesc:'מושל עיראק מטעם האומיים, מן הדוגמאות הבולטות לכוחו של ואלי.', enDesc:'Umayyad governor of Iraq and one of the clearest examples of the power of a wali.' }]
     };
 
-    const body = document.body;
-    const languageToggle = document.getElementById('languageToggle');
-    const timelineButtons = document.getElementById('timelineButtons');
-    const timelineDetail = document.getElementById('timelineDetail');
-    const rolesGrid = document.getElementById('rolesGrid');
-    const glossaryGrid = document.getElementById('glossaryGrid');
-    const figuresGrid = document.getElementById('figuresGrid');
-
-    function isEnglish() { return body.classList.contains('lang-en'); }
-    function placeholderSvg(name) {
-      const initials = encodeURIComponent(name.split(' ').map(x => x[0]).slice(0, 2).join(''));
-      return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 650'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23e4f3ed'/><stop offset='1' stop-color='%23fff0d3'/></linearGradient></defs><rect width='900' height='650' fill='url(%23g)'/><circle cx='450' cy='270' r='115' fill='%23ffffff' opacity='.92'/><rect x='260' y='410' width='380' height='80' rx='40' fill='%23ffffff' opacity='.92'/><text x='450' y='305' font-family='Arial' font-size='92' text-anchor='middle' fill='%231f6b55'>${initials}</text></svg>`;
-    }
-    function renderTimeline(activeIndex = 0) {
-      timelineButtons.innerHTML = '';
-      data.timeline.forEach((item, index) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'timeline-btn' + (index === activeIndex ? ' active' : '');
-        btn.innerHTML = `<span>${item.years}</span><br><small>${isEnglish() ? item.enTitle : item.heTitle}</small>`;
-        btn.addEventListener('click', () => renderTimeline(index));
-        timelineButtons.appendChild(btn);
-      });
-      const item = data.timeline[activeIndex];
-      timelineDetail.innerHTML = `<h3>${item.years} — ${isEnglish() ? item.enTitle : item.heTitle}</h3><p>${isEnglish() ? item.enText : item.heText}</p>`;
-    }
-    function renderRoles() { rolesGrid.innerHTML = data.roles.map(([he, en, ar, heText, enText]) => `<article class="role-card"><h3>${isEnglish() ? en : he} <span lang="ar" dir="rtl">${ar}</span></h3><p>${isEnglish() ? enText : heText}</p></article>`).join(''); }
-    function renderGlossary() { glossaryGrid.innerHTML = data.glossary.map(([he, en, heText, enText]) => `<details class="term-card"><summary>${isEnglish() ? en : he}</summary><p>${isEnglish() ? enText : heText}</p></details>`).join(''); }
-    function renderFigures() {
-      figuresGrid.innerHTML = '';
-      data.figures.forEach((figure) => {
-        const name = isEnglish() ? figure.enName : figure.heName;
-        const desc = isEnglish() ? figure.enDesc : figure.heDesc;
-        const imgSrc = `assets/images/figures/${figure.file}`;
-        const card = document.createElement('article');
-        card.className = 'figure-card';
-        card.tabIndex = 0;
-        card.innerHTML = `<img class="figure-image" src="${imgSrc}" alt="${name}" onerror="this.onerror=null;this.src='${placeholderSvg(name)}';" /><h3>${name}</h3><p>${figure.years}</p>`;
-        card.addEventListener('click', () => openModal(name, figure.years, desc, imgSrc));
-        card.addEventListener('keydown', (event) => { if (event.key === 'Enter') openModal(name, figure.years, desc, imgSrc); });
-        figuresGrid.appendChild(card);
-      });
-    }
-    const modal = document.getElementById('figureModal');
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalYears = document.getElementById('modalYears');
-    const modalDescription = document.getElementById('modalDescription');
-    const closeModal = document.getElementById('closeModal');
-    function openModal(name, years, description, src) {
-      modalTitle.textContent = name;
-      modalYears.textContent = years;
-      modalDescription.textContent = description;
-      modalImage.alt = name;
-      modalImage.onerror = () => { modalImage.onerror = null; modalImage.src = placeholderSvg(name); };
-      modalImage.src = src;
-      modal.classList.add('open');
-      closeModal.focus();
-    }
-    function closeFigureModal() { modal.classList.remove('open'); }
-    closeModal.addEventListener('click', closeFigureModal);
-    modal.addEventListener('click', (event) => { if (event.target === modal) closeFigureModal(); });
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeFigureModal(); });
-    function renderAll() {
-      languageToggle.textContent = isEnglish() ? 'עברית' : 'English';
-      document.documentElement.lang = isEnglish() ? 'en' : 'he';
-      document.documentElement.dir = isEnglish() ? 'ltr' : 'rtl';
-      renderTimeline(0); renderRoles(); renderGlossary(); renderFigures();
-    }
-    languageToggle.addEventListener('click', () => { body.classList.toggle('lang-en'); renderAll(); });
-    renderAll();
+    const body = document.body, languageToggle = document.getElementById('languageToggle'), timelineButtons = document.getElementById('timelineButtons'), timelineDetail = document.getElementById('timelineDetail'), rolesGrid = document.getElementById('rolesGrid'), glossaryGrid = document.getElementById('glossaryGrid'), figuresGrid = document.getElementById('figuresGrid');
+    function isEnglish(){ return body.classList.contains('lang-en'); }
+    function placeholderSvg(name){ const initials = encodeURIComponent(name.split(' ').map(x => x[0]).slice(0, 2).join('')); return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 650'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23132b24'/><stop offset='1' stop-color='%23d5a249'/></linearGradient></defs><rect width='900' height='650' fill='url(%23g)'/><circle cx='450' cy='270' r='115' fill='%23fff4d6' opacity='.90'/><rect x='260' y='410' width='380' height='80' rx='40' fill='%23fff4d6' opacity='.90'/><text x='450' y='305' font-family='Arial' font-size='92' text-anchor='middle' fill='%23081411'>${initials}</text></svg>`; }
+    function renderTimeline(activeIndex = 0){ timelineButtons.innerHTML = ''; data.timeline.forEach((item, index) => { const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'timeline-btn' + (index === activeIndex ? ' active' : ''); btn.innerHTML = `<span>${item.years}</span><br><small>${isEnglish() ? item.enTitle : item.heTitle}</small>`; btn.addEventListener('click', () => renderTimeline(index)); timelineButtons.appendChild(btn); }); const item = data.timeline[activeIndex]; timelineDetail.innerHTML = `<h3>${item.years} — ${isEnglish() ? item.enTitle : item.heTitle}</h3><p>${isEnglish() ? item.enText : item.heText}</p>`; }
+    function renderRoles(){ rolesGrid.innerHTML = data.roles.map(([he,en,ar,heText,enText]) => `<article class="role-card"><h3>${isEnglish() ? en : he} <span lang="ar" dir="rtl">${ar}</span></h3><p>${isEnglish() ? enText : heText}</p></article>`).join(''); }
+    function renderGlossary(){ glossaryGrid.innerHTML = data.glossary.map(([he,en,heText,enText]) => `<details class="term-card"><summary>${isEnglish() ? en : he}</summary><p>${isEnglish() ? enText : heText}</p></details>`).join(''); }
+    function renderFigures(){ figuresGrid.innerHTML = ''; data.figures.forEach((figure) => { const name = isEnglish() ? figure.enName : figure.heName; const desc = isEnglish() ? figure.enDesc : figure.heDesc; const imgSrc = `assets/images/figures/${figure.file}`; const card = document.createElement('article'); card.className = 'figure-card'; card.tabIndex = 0; card.innerHTML = `<img class="figure-image" src="${imgSrc}" alt="${name}" onerror="this.onerror=null;this.src='${placeholderSvg(name)}';" /><h3>${name}</h3><p>${figure.years}</p>`; card.addEventListener('click', () => openModal(name, figure.years, desc, imgSrc)); card.addEventListener('keydown', (event) => { if (event.key === 'Enter') openModal(name, figure.years, desc, imgSrc); }); figuresGrid.appendChild(card); }); }
+    const modal = document.getElementById('figureModal'), modalImage = document.getElementById('modalImage'), modalTitle = document.getElementById('modalTitle'), modalYears = document.getElementById('modalYears'), modalDescription = document.getElementById('modalDescription'), closeModal = document.getElementById('closeModal');
+    function openModal(name, years, description, src){ modalTitle.textContent = name; modalYears.textContent = years; modalDescription.textContent = description; modalImage.alt = name; modalImage.onerror = () => { modalImage.onerror = null; modalImage.src = placeholderSvg(name); }; modalImage.src = src; modal.classList.add('open'); closeModal.focus(); }
+    function closeFigureModal(){ modal.classList.remove('open'); }
+    closeModal.addEventListener('click', closeFigureModal); modal.addEventListener('click', (event) => { if (event.target === modal) closeFigureModal(); }); document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeFigureModal(); });
+    function renderAll(){ languageToggle.textContent = isEnglish() ? 'עברית' : 'English'; document.documentElement.lang = isEnglish() ? 'en' : 'he'; document.documentElement.dir = isEnglish() ? 'ltr' : 'rtl'; renderTimeline(0); renderRoles(); renderGlossary(); renderFigures(); }
+    languageToggle.addEventListener('click', () => { body.classList.toggle('lang-en'); renderAll(); }); renderAll();
   </script>
 </body>
 </html>
