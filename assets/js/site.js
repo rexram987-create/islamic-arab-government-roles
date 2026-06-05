@@ -65,10 +65,11 @@ function initModal(){
   const modal=document.getElementById('figureModal');
   if(!modal)return;
   const close=document.getElementById('closeModal');
-  document.querySelectorAll('[data-modal-name]').forEach(card=>{
-    card.addEventListener('click',(event)=>{
-      if(event.metaKey||event.ctrlKey)return;
+  document.querySelectorAll('[data-modal-trigger]').forEach(trigger=>{
+    trigger.addEventListener('click',(event)=>{
       event.preventDefault();
+      const card=trigger.closest('[data-modal-name]');
+      if(!card)return;
       document.getElementById('modalTitle').textContent=card.dataset.modalName;
       document.getElementById('modalYears').textContent=card.dataset.modalYears||'';
       document.getElementById('modalDescription').textContent=card.dataset.modalDescription||'';
