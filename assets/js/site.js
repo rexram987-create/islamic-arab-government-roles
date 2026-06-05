@@ -18,101 +18,87 @@ const roleTransliterations={
   'imam.html':{he:'אִמַאם',en:'Imām'}
 };
 
-function pagePrefix(){
-  const path=window.location.pathname;
-  if(path.includes('/roles/')||path.includes('/figures/')) return '../';
-  return '';
-}
+const roleResearch={
+  'caliph.html':{
+    he:['מקור השם','המילה ח׳ליפה פירושה יורש, ממלא מקום או הבא אחרי. בהקשר המוסלמי היא מציינת את מי שעמד בראש הקהילה לאחר מות מוחמד, לא כנביא חדש אלא כמנהיג מדיני־דתי.','סמכויות ותפקידים','הח׳ליף היה אמור לשמור על אחדות האומה, להוביל מלחמה ושלום, למנות מושלים ושופטים, לפקח על גביית מסים ולסמל את רציפות הקהילה המוסלמית. בפועל סמכויותיו השתנו מאוד בין הח׳ליפות הראשידונית, האומיית, העבאסית והעות׳מאנית.','התפתחות היסטורית','בראשית הדרך הח׳ליף היה גם מנהיג פוליטי פעיל. בהמשך, בעיקר בתקופות שבהן סולטאנים ואמירים החזיקו בכוח הצבאי, הח׳ליף הפך לעיתים לסמל לגיטימציה יותר מאשר לשליט בפועל.','השוואה מודרנית','אין מקבילה מודרנית מלאה. אפשר להשוות אותו באופן חלקי לנשיא סמלי, ראש מדינה דתי או מקור לגיטימציה חוקתית, אך הח׳ליפות הייתה מוסד היסטורי ייחודי.'],
+    en:['Name Origin','Khalifa means successor or one who comes after. In Islamic history it refers to the leader of the community after Muhammad, not as a new prophet but as a political-religious leader.','Powers and Duties','The caliph was expected to preserve the unity of the umma, lead war and peace, appoint governors and judges, supervise taxation, and symbolize communal continuity. In practice, his powers changed greatly across dynasties.','Historical Development','In the earliest period the caliph was an active political ruler. Later, especially when sultans and emirs held military power, the caliph could become more a symbol of legitimacy than a practical ruler.','Modern Comparison','There is no full modern equivalent. He may be partly compared to a symbolic president, religious head of state, or constitutional source of legitimacy, but the caliphate was historically unique.']
+  },
+  'emir.html':{
+    he:['מקור השם','אמיר בא מן השורש הערבי א־מ־ר, הקשור לציווי, הנהגה וסמכות. משמעותו המקורית היא מפקד או בעל פקודה.','סמכויות ותפקידים','אמירים יכלו להיות מפקדי צבא, מושלי מחוזות, שליטים מקומיים או נסיכים. התפקיד היה גמיש מאוד ונע בין פיקוד צבאי לבין ריבונות אזורית.','התפתחות היסטורית','בימי הכיבושים המוקדמים אמיר היה לרוב מפקד. בתקופות מאוחרות יותר, במיוחד באל־אנדלוס ובשושלות אזוריות, אמירים יכלו לשלוט כמדינאים עצמאיים בפועל.','השוואה מודרנית','אפשר להשוות חלקית למושל, נסיך, מפקד צבאי או ראש ישות מדינית אזורית.'],
+    en:['Name Origin','Amir comes from the Arabic root connected with command and authority. Its basic sense is commander or one who gives orders.','Powers and Duties','Emirs could be military commanders, provincial governors, local rulers, or princes. The office was flexible, ranging from military command to regional sovereignty.','Historical Development','In the early conquests an emir was often a commander. Later, especially in al-Andalus and regional dynasties, emirs could rule as practically independent statesmen.','Modern Comparison','It can be partly compared to a governor, prince, military commander, or head of a regional polity.']
+  },
+  'sultan.html':{
+    he:['מקור השם','סולטאן פירושו סמכות, כוח או שלטון. בהדרגה הפך המונח לתואר של שליט בעל עוצמה פוליטית וצבאית.','סמכויות ותפקידים','הסולטאן החזיק בצבא, במנהל, במדיניות החוץ ובגביית המסים. לעיתים הח׳ליף העניק לו לגיטימציה דתית, אך הכוח המעשי היה בידיו.','התפתחות היסטורית','התואר התחזק במיוחד בעולם הטורקי־פרסי ובתקופה הסלג׳וקית. אחר כך היה נפוץ בסולטאנויות רבות, ובהן הממלוכית והעות׳מאנית.','השוואה מודרנית','אפשר להשוותו למלך ריבוני או שליט צבאי־מדיני, אך עם הקשר דתי־היסטורי מיוחד.'],
+    en:['Name Origin','Sultan means authority, power, or rule. Over time it became the title of a ruler with political and military power.','Powers and Duties','The sultan controlled the army, administration, foreign policy, and taxation. Sometimes the caliph provided religious legitimacy, while practical power rested with the sultan.','Historical Development','The title became especially important in the Turko-Persian and Seljuk worlds, later appearing in many sultanates including the Mamluk and Ottoman states.','Modern Comparison','It may be compared to a sovereign king or military-political ruler, though with a specific religious-historical context.']
+  },
+  'vizier.html':{
+    he:['מקור השם','וזיר פירושו מסייע, נושא משא או שר. במנהל האסלאמי הוא הפך לשר בכיר ולעיתים לראש המנגנון השלטוני.','סמכויות ותפקידים','הווזיר תיאם בין מחלקות הממשל, ייעץ לשליט, פיקח על פקידים, עסק בכספים ולעיתים ניהל בפועל את המדינה.','התפתחות היסטורית','התפקיד התחזק במיוחד בחצר העבאסית ובהשפעת מסורות מנהל פרסיות. בתקופות שונות היה הווזיר בעל כוח עצום, ולעיתים גם חשוף לסכנה פוליטית.','השוואה מודרנית','מקביל חלקית לראש ממשלה, שר בכיר, מנכ״ל ממשלתי או ראש מטה שלטוני.'],
+    en:['Name Origin','Wazir means helper, burden-bearer, or minister. In Islamic administration it became a senior ministerial office.','Powers and Duties','The vizier coordinated government departments, advised the ruler, supervised officials, handled finances, and sometimes governed in practice.','Historical Development','The office grew especially in the Abbasid court under Persian administrative influence. In some periods viziers held immense power, but also faced political danger.','Modern Comparison','It can be partly compared to a prime minister, senior minister, chief administrator, or head of government staff.']
+  },
+  'grand-vizier.html':{
+    he:['מקור השם','וזיר גדול הוא הרחבה של מוסד הווזיר, ובייחוד באימפריה העות׳מאנית סימן את ראש המנהל האימפריאלי.','סמכויות ותפקידים','הווזיר הגדול עמד בראש הדיוואן, ניהל משרדים, ייצג את הסולטאן, הוביל מדיניות ולעיתים פיקד על מערכות צבאיות.','התפתחות היסטורית','באימפריה העות׳מאנית התפקיד נעשה מרכזי מאוד, במיוחד כאשר הסולטאן עסק פחות בניהול יומיומי.','השוואה מודרנית','מקביל חלקית לראש ממשלה או ראש קבינט, אם כי פעל בתוך מונרכיה אימפריאלית.'],
+    en:['Name Origin','Grand Vizier is an expanded form of the vizierate, especially in the Ottoman Empire, marking the head of imperial administration.','Powers and Duties','The grand vizier headed the imperial council, managed offices, represented the sultan, led policy, and sometimes commanded campaigns.','Historical Development','In the Ottoman Empire the office became highly central, especially when sultans were less involved in daily administration.','Modern Comparison','It partly resembles a prime minister or cabinet chief, though within an imperial monarchy.']
+  },
+  'wali.html':{
+    he:['מקור השם','ואלי פירושו ממונה, מושל או בעל סמכות מטעם גורם עליון.','סמכויות ותפקידים','הוואלי ניהל מחוז, שמר על הביטחון, פיקח על גביית מסים, מינה פקידים מקומיים וייצג את המרכז בפריפריה.','התפתחות היסטורית','במדינות רחבות ידיים הוואלי היה חיוני לשליטה במחוזות. לעיתים הוא צבר כוח רב עד כדי עצמאות חלקית או מרד.','השוואה מודרנית','מקביל חלקית למושל מחוז, נציב או ראש ממשל אזורי.'],
+    en:['Name Origin','Wali means appointed authority, governor, or official acting on behalf of a higher power.','Powers and Duties','The wali governed a province, maintained security, supervised taxation, appointed local officials, and represented the center in the periphery.','Historical Development','In large states the wali was essential for provincial control. Sometimes governors accumulated enough power to become semi-independent or rebellious.','Modern Comparison','It partly resembles a provincial governor, commissioner, or regional administrator.']
+  },
+  'qadi.html':{
+    he:['מקור השם','קאדי נגזר מן השורש הערבי ק־ד־י, הקשור לשפיטה, הכרעה וביצוע דין.','סמכויות ותפקידים','הקאדי עסק בדיני משפחה, ירושה, חוזים, סכסוכים אזרחיים, הקדשים ולעיתים עניינים פליליים.','התפתחות היסטורית','מעמד הקאדי התחזק עם התפתחות הפיקה והמדינה המוסלמית. הוא היה נקודת מפגש בין משפט דתי לבין שלטון מדיני.','השוואה מודרנית','מקביל חלקית לשופט אזרחי או שופט דתי, תלוי בהקשר ההיסטורי.'],
+    en:['Name Origin','Qadi derives from an Arabic root connected with judging, deciding, and carrying out legal rulings.','Powers and Duties','The qadi handled family law, inheritance, contracts, civil disputes, endowments, and sometimes criminal matters.','Historical Development','The qadi’s status grew with the development of Islamic jurisprudence and the Muslim state, forming a meeting point between religious law and political authority.','Modern Comparison','It partly resembles a civil judge or religious judge, depending on context.']
+  },
+  'qadi-al-qudat.html':{
+    he:['מקור השם','קאדי אל־קודאת פירושו שופט השופטים. זהו תואר בכיר מעל קאדים מקומיים.','סמכויות ותפקידים','הוא פיקח על מערכת המשפט, ייעץ לשליט, מינה או המליץ על שופטים וטיפל בסוגיות משפטיות מרכזיות.','התפתחות היסטורית','התפקיד התפתח בתקופה העבאסית כחלק מהצורך לארגן מערכת משפט רחבה ומורכבת.','השוואה מודרנית','מקביל חלקית לנשיא בית משפט עליון, שר משפטים דתי או ראש מערכת שיפוטית.'],
+    en:['Name Origin','Qadi al-Qudat means judge of judges, a senior title above local qadis.','Powers and Duties','He supervised the judiciary, advised the ruler, appointed or recommended judges, and handled major legal issues.','Historical Development','The office developed in the Abbasid period as part of the need to organize a broad judicial system.','Modern Comparison','It partly resembles a chief justice, religious justice minister, or head of a judicial system.']
+  },
+  'mufti.html':{
+    he:['מקור השם','מופתי הוא מי שנותן פתווה — תשובה או חוות דעת הלכתית־משפטית.','סמכויות ותפקידים','המופתי פירש את הדין, השיב לשאלות ציבוריות ופרטיות, וסייע לקאדים ולשליטים להבין עמדות משפטיות.','התפתחות היסטורית','עם התפתחות אסכולות המשפט, המופתי נעשה חלק חשוב מן המרחב הדתי־משפטי, לעיתים מחוץ למנגנון המדינה ולעיתים בתוכו.','השוואה מודרנית','מקביל חלקית ליועץ משפטי דתי או פוסק הלכה, אך לא תמיד לשופט מחייב.'],
+    en:['Name Origin','Mufti is one who issues a fatwa, a legal-religious answer or opinion.','Powers and Duties','The mufti interpreted law, answered public and private questions, and helped judges and rulers understand legal positions.','Historical Development','As legal schools developed, the mufti became a major part of religious-legal life, sometimes outside the state and sometimes within it.','Modern Comparison','It partly resembles a religious legal adviser or jurist, but not always a binding judge.']
+  },
+  'muhtasib.html':{
+    he:['מקור השם','מוחתסב קשור למוסד החִסבה, כלומר פיקוח ציבורי על שווקים, מסחר ומוסר ציבורי.','סמכויות ותפקידים','המוחתסב בדק משקלות ומידות, מנע הונאה, פיקח על ניקיון וסדר בשוק ולעיתים אכף נורמות מוסריות.','התפתחות היסטורית','החִסבה התפתחה בערים מוסלמיות שבהן השוק היה מרכז כלכלי וחברתי חשוב.','השוואה מודרנית','מקביל חלקית למפקח עירוני, רגולטור שווקים, רשות צרכנות או פיקוח מסחרי.'],
+    en:['Name Origin','Muhtasib is connected to hisba, public supervision of markets, commerce, and public morality.','Powers and Duties','The muhtasib checked weights and measures, prevented fraud, supervised cleanliness and order, and sometimes enforced public norms.','Historical Development','Hisba developed in Muslim cities where the market was an important economic and social center.','Modern Comparison','It partly resembles a municipal inspector, market regulator, consumer authority, or commercial inspector.']
+  },
+  'hajib.html':{
+    he:['מקור השם','חאג׳ב פירושו חוצץ, שומר סף או מי שמווסת גישה לשליט.','סמכויות ותפקידים','החאג׳ב שלט בגישה לחצר, ניהל טקסים, תיאם פגישות ולעיתים הפך ליועץ ולמתווך פוליטי בעל עוצמה.','התפתחות היסטורית','באל־אנדלוס ובחצרות מסוימות התפקיד חרג מניהול חצר והפך למוקד כוח של ממש.','השוואה מודרנית','מקביל חלקית לראש לשכה, ראש סגל, מנהל חצר או יועץ בכיר.'],
+    en:['Name Origin','Hajib means gatekeeper, chamberlain, or one who controls access to the ruler.','Powers and Duties','The hajib controlled court access, managed protocol, arranged meetings, and could become a powerful adviser and political mediator.','Historical Development','In al-Andalus and some courts the office moved beyond court management and became a real power center.','Modern Comparison','It partly resembles a chief of staff, court chamberlain, office director, or senior adviser.']
+  },
+  'katib.html':{
+    he:['מקור השם','כאתב פירושו כותב או סופר. בעולם המנהל הוא היה פקיד כתיבה, מזכיר ומנסח מסמכים.','סמכויות ותפקידים','הכאתב כתב צווים, תעודות, מסמכי מס, מכתבים דיפלומטיים ורישומים מנהליים.','התפתחות היסטורית','ככל שהאימפריות גדלו, הצורך בכתיבה מקצועית הפך את הכאתבים לשכבה מנהלית חשובה.','השוואה מודרנית','מקביל חלקית למזכיר ממשלתי, פקיד בכיר, ארכיונאי או יועץ ניסוח מדיני.'],
+    en:['Name Origin','Katib means writer or scribe. In administration he was a secretary and document writer.','Powers and Duties','Katibs wrote decrees, certificates, tax documents, diplomatic letters, and administrative records.','Historical Development','As empires grew, professional writing made katibs an important administrative class.','Modern Comparison','It partly resembles a government secretary, senior clerk, archivist, or policy drafting adviser.']
+  },
+  'sahib-al-barid.html':{
+    he:['מקור השם','צאחב אל־בריד פירושו בעל או ממונה על הבריד — מערכת הדואר והתקשורת.','סמכויות ותפקידים','הוא ניהל שליחים, תחנות דרכים, העברת מכתבים ולעיתים איסוף מידע מודיעיני על מחוזות ופקידים.','התפתחות היסטורית','באימפריות רחבות הבריד היה חיוני לשליטה מרחוק. הוא שילב תקשורת, מנהל ולעיתים מודיעין.','השוואה מודרנית','מקביל חלקית לראש שירות דואר ממשלתי, מערך תקשורת מדינתי או מנגנון מודיעין מנהלי.'],
+    en:['Name Origin','Sahib al-Barid means the official responsible for the barid, the postal and communication system.','Powers and Duties','He managed messengers, road stations, letters, and sometimes intelligence reports on provinces and officials.','Historical Development','In large empires the barid was essential for long-distance control, combining communication, administration, and sometimes intelligence.','Modern Comparison','It partly resembles a head of state communications, postal administration, or administrative intelligence network.']
+  },
+  'sharif.html':{
+    he:['מקור השם','שריף פירושו אציל, נכבד או בעל ייחוס מכובד. לעיתים הוא נקשר לייחוס למשפחת הנביא.','סמכויות ותפקידים','שריפים יכלו להיות מנהיגים מקומיים, בעיקר בערים קדושות, ולשלב יוקרה חברתית, דתית ופוליטית.','התפתחות היסטורית','התואר היה חשוב במיוחד בחצי האי ערב ובמכה, שבה ייחוס דתי העניק לגיטימציה פוליטית.','השוואה מודרנית','אין מקבילה מלאה. אפשר להשוותו חלקית לאצולה מקומית, מנהיג דתי־חברתי או ראש בית שושלתי.'],
+    en:['Name Origin','Sharif means noble, honorable, or of distinguished lineage, often connected with descent from the Prophet’s family.','Powers and Duties','Sharifs could be local leaders, especially in holy cities, combining social, religious, and political prestige.','Historical Development','The title was especially important in Arabia and Mecca, where sacred lineage granted political legitimacy.','Modern Comparison','There is no full equivalent. It partly resembles local nobility, a religious-social leader, or dynastic house head.']
+  },
+  'imam.html':{
+    he:['מקור השם','אימאם פירושו מי שעומד לפני אחרים ומוביל. במובן בסיסי הוא מוביל תפילה, אך בהקשרים אחרים הוא מנהיג דתי או פוליטי־דתי.','סמכויות ותפקידים','האימאם יכול להנהיג תפילה, ללמד, להדריך קהילה, ובמסורות שיעיות לשאת משמעות עמוקה של הנהגה רוחנית וסמכות לגיטימית.','התפתחות היסטורית','משמעות התואר השתנתה בין קהילות סוניות, שיעיות ומקומיות. לכן יש להבין אותו לפי הקשר תקופתי ומסורתי.','השוואה מודרנית','מקביל חלקית לרב קהילה, מנהיג תפילה, חכם דתי או מנהיג רוחני, תלוי בהקשר.'],
+    en:['Name Origin','Imam means one who stands before and leads. In the basic sense he leads prayer, but in other contexts he is a religious or political-religious leader.','Powers and Duties','An imam may lead prayer, teach, guide a community, and in Shiite traditions carry deep spiritual and legitimate authority.','Historical Development','The title’s meaning varied among Sunni, Shiite, and local communities, so it must be understood by context.','Modern Comparison','It partly resembles a community cleric, prayer leader, religious scholar, or spiritual leader, depending on context.']
+  }
+};
 
-function currentFile(){
-  const parts=window.location.pathname.split('/').filter(Boolean);
-  return parts[parts.length-1]||'index.html';
-}
+function pagePrefix(){const path=window.location.pathname;if(path.includes('/roles/')||path.includes('/figures/')) return '../';return ''}
+function currentFile(){const parts=window.location.pathname.split('/').filter(Boolean);return parts[parts.length-1]||'index.html'}
 
 function renderUnifiedNav(){
-  const header=document.querySelector('.site-header');
-  if(!header) return;
-  const p=pagePrefix();
-  const file=currentFile();
-  const inRoles=window.location.pathname.includes('/roles/');
-  const inFigures=window.location.pathname.includes('/figures/');
-  const active=(target)=> file===target || (target==='roles.html'&&inRoles) || (target==='figures.html'&&inFigures) ? 'active' : '';
-  header.innerHTML=`
-    <nav class="nav" aria-label="ניווט ראשי">
-      <a class="brand" href="${p}index.html"><span class="brand-mark">☾</span><span>Islamic-Arab Government Roles</span></a>
-      <div class="nav-links">
-        <a class="${active('index.html')}" href="${p}index.html" data-lang="he">בית</a><a class="${active('index.html')}" href="${p}index.html" data-lang="en">Home</a>
-        <a class="${active('introduction.html')}" href="${p}introduction.html" data-lang="he">מבוא</a><a class="${active('introduction.html')}" href="${p}introduction.html" data-lang="en">Intro</a>
-        <a class="${active('timeline.html')}" href="${p}timeline.html" data-lang="he">ציר זמן</a><a class="${active('timeline.html')}" href="${p}timeline.html" data-lang="en">Timeline</a>
-        <a class="${active('roles.html')}" href="${p}roles.html" data-lang="he">תפקידים</a><a class="${active('roles.html')}" href="${p}roles.html" data-lang="en">Roles</a>
-        <a class="${active('institutions.html')}" href="${p}institutions.html" data-lang="he">מוסדות</a><a class="${active('institutions.html')}" href="${p}institutions.html" data-lang="en">Institutions</a>
-        <a class="${active('military.html')}" href="${p}military.html" data-lang="he">צבא</a><a class="${active('military.html')}" href="${p}military.html" data-lang="en">Military</a>
-        <a class="${active('law-religion.html')}" href="${p}law-religion.html" data-lang="he">משפט ודת</a><a class="${active('law-religion.html')}" href="${p}law-religion.html" data-lang="en">Law & Religion</a>
-        <a class="${active('economy.html')}" href="${p}economy.html" data-lang="he">כלכלה</a><a class="${active('economy.html')}" href="${p}economy.html" data-lang="en">Economy</a>
-        <a class="${active('glossary.html')}" href="${p}glossary.html" data-lang="he">מילון</a><a class="${active('glossary.html')}" href="${p}glossary.html" data-lang="en">Glossary</a>
-        <a class="${active('figures.html')}" href="${p}figures.html" data-lang="he">דמויות</a><a class="${active('figures.html')}" href="${p}figures.html" data-lang="en">Figures</a>
-        <a class="${active('sources.html')}" href="${p}sources.html" data-lang="he">מקורות</a><a class="${active('sources.html')}" href="${p}sources.html" data-lang="en">Sources</a>
-        <a class="${active('about.html')}" href="${p}about.html" data-lang="he">אודות</a><a class="${active('about.html')}" href="${p}about.html" data-lang="en">About</a>
-        <button class="language-toggle" type="button" id="languageToggle">English</button>
-      </div>
-    </nav>`;
+  const header=document.querySelector('.site-header'); if(!header)return; const p=pagePrefix(); const file=currentFile(); const inRoles=window.location.pathname.includes('/roles/'); const inFigures=window.location.pathname.includes('/figures/'); const active=(target)=> file===target || (target==='roles.html'&&inRoles) || (target==='figures.html'&&inFigures) ? 'active' : '';
+  header.innerHTML=`<nav class="nav" aria-label="ניווט ראשי"><a class="brand" href="${p}index.html"><span class="brand-mark">☾</span><span>Islamic-Arab Government Roles</span></a><div class="nav-links"><a class="${active('index.html')}" href="${p}index.html" data-lang="he">בית</a><a class="${active('index.html')}" href="${p}index.html" data-lang="en">Home</a><a class="${active('introduction.html')}" href="${p}introduction.html" data-lang="he">מבוא</a><a class="${active('introduction.html')}" href="${p}introduction.html" data-lang="en">Intro</a><a class="${active('timeline.html')}" href="${p}timeline.html" data-lang="he">ציר זמן</a><a class="${active('timeline.html')}" href="${p}timeline.html" data-lang="en">Timeline</a><a class="${active('roles.html')}" href="${p}roles.html" data-lang="he">תפקידים</a><a class="${active('roles.html')}" href="${p}roles.html" data-lang="en">Roles</a><a class="${active('institutions.html')}" href="${p}institutions.html" data-lang="he">מוסדות</a><a class="${active('institutions.html')}" href="${p}institutions.html" data-lang="en">Institutions</a><a class="${active('military.html')}" href="${p}military.html" data-lang="he">צבא</a><a class="${active('military.html')}" href="${p}military.html" data-lang="en">Military</a><a class="${active('law-religion.html')}" href="${p}law-religion.html" data-lang="he">משפט ודת</a><a class="${active('law-religion.html')}" href="${p}law-religion.html" data-lang="en">Law & Religion</a><a class="${active('economy.html')}" href="${p}economy.html" data-lang="he">כלכלה</a><a class="${active('economy.html')}" href="${p}economy.html" data-lang="en">Economy</a><a class="${active('glossary.html')}" href="${p}glossary.html" data-lang="he">מילון</a><a class="${active('glossary.html')}" href="${p}glossary.html" data-lang="en">Glossary</a><a class="${active('figures.html')}" href="${p}figures.html" data-lang="he">דמויות</a><a class="${active('figures.html')}" href="${p}figures.html" data-lang="en">Figures</a><a class="${active('sources.html')}" href="${p}sources.html" data-lang="he">מקורות</a><a class="${active('sources.html')}" href="${p}sources.html" data-lang="en">Sources</a><a class="${active('about.html')}" href="${p}about.html" data-lang="he">אודות</a><a class="${active('about.html')}" href="${p}about.html" data-lang="en">About</a><button class="language-toggle" type="button" id="languageToggle">English</button></div></nav>`
 }
 
 function addRoleTransliteration(){
-  if(!window.location.pathname.includes('/roles/')) return;
-  const item=roleTransliterations[currentFile()];
-  if(!item) return;
-  const hero=document.querySelector('.hero');
-  if(!hero || document.querySelector('.role-transliteration')) return;
-  const lead=hero.querySelector('.lead');
-  const block=document.createElement('div');
-  block.className='card role-transliteration';
-  block.innerHTML=`<h3 data-lang="he">תעתיק עברי מנוקד</h3><h3 data-lang="en">Vocalized Transliteration</h3><p data-lang="he"><strong>${item.he}</strong></p><p data-lang="en"><strong>${item.en}</strong></p>`;
-  if(lead) lead.insertAdjacentElement('afterend',block); else hero.appendChild(block);
+  if(!window.location.pathname.includes('/roles/'))return; const item=roleTransliterations[currentFile()]; if(!item)return; const hero=document.querySelector('.hero'); if(!hero||document.querySelector('.role-transliteration'))return; const lead=hero.querySelector('.lead'); const block=document.createElement('div'); block.className='card role-transliteration'; block.innerHTML=`<h3 data-lang="he">תעתיק עברי מנוקד</h3><h3 data-lang="en">Vocalized Transliteration</h3><p data-lang="he"><strong>${item.he}</strong></p><p data-lang="en"><strong>${item.en}</strong></p>`; if(lead)lead.insertAdjacentElement('afterend',block);else hero.appendChild(block)
 }
 
-function applyLanguage(){
-  const en=isEnglish();
-  const t=document.getElementById('languageToggle');
-  if(t)t.textContent=en?'עברית':'English';
-  document.documentElement.lang=en?'en':'he';
-  document.documentElement.dir=en?'ltr':'rtl';
-  localStorage.setItem('siteLang',en?'en':'he')
+function enrichRolePage(){
+  if(!window.location.pathname.includes('/roles/'))return; const d=roleResearch[currentFile()]; if(!d||document.querySelector('.role-research-expanded'))return; const main=document.querySelector('main'); if(!main)return; const section=document.createElement('section'); section.className='role-research-expanded'; const make=(arr,lang)=>`<div data-lang="${lang}"><div class="grid two"><article class="panel"><h2>${arr[0]}</h2><p>${arr[1]}</p></article><article class="panel"><h2>${arr[2]}</h2><p>${arr[3]}</p></article><article class="panel"><h2>${arr[4]}</h2><p>${arr[5]}</p></article><article class="panel"><h2>${arr[6]}</h2><p>${arr[7]}</p></article></div></div>`; section.innerHTML=`<div class="section-title"><h2 data-lang="he">הרחבה מחקרית</h2><h2 data-lang="en">Research Expansion</h2><p data-lang="he">סקירה מורחבת על מקור השם, סמכויות, התפתחות היסטורית והשוואה מודרנית.</p><p data-lang="en">An expanded overview of name origin, powers, historical development, and modern comparison.</p></div>${make(d.he,'he')}${make(d.en,'en')}`; main.appendChild(section)
 }
 
-function initLanguage(){
-  if(localStorage.getItem('siteLang')==='en')document.body.classList.add('lang-en');
-  applyLanguage();
-  const t=document.getElementById('languageToggle');
-  if(t)t.addEventListener('click',()=>{
-    document.body.classList.toggle('lang-en');
-    applyLanguage();
-    if(typeof renderTimeline==='function')renderTimeline(0);
-    if(typeof render==='function')render();
-  })
-}
+function applyLanguage(){const en=isEnglish();const t=document.getElementById('languageToggle');if(t)t.textContent=en?'עברית':'English';document.documentElement.lang=en?'en':'he';document.documentElement.dir=en?'ltr':'rtl';localStorage.setItem('siteLang',en?'en':'he')}
+function initLanguage(){if(localStorage.getItem('siteLang')==='en')document.body.classList.add('lang-en');applyLanguage();const t=document.getElementById('languageToggle');if(t)t.addEventListener('click',()=>{document.body.classList.toggle('lang-en');applyLanguage();if(typeof renderTimeline==='function')renderTimeline(0);if(typeof render==='function')render()})}
+function initModal(){const modal=document.getElementById('figureModal');if(!modal)return;const close=document.getElementById('closeModal');document.querySelectorAll('[data-modal-trigger]').forEach(trigger=>{trigger.addEventListener('click',(event)=>{event.preventDefault();const card=trigger.closest('[data-modal-name]');if(!card)return;document.getElementById('modalTitle').textContent=card.dataset.modalName;document.getElementById('modalYears').textContent=card.dataset.modalYears||'';document.getElementById('modalDescription').textContent=card.dataset.modalDescription||'';document.getElementById('modalInitials').textContent=card.dataset.modalInitials||'☾';modal.classList.add('open');close&&close.focus()})});function c(){modal.classList.remove('open')}close&&close.addEventListener('click',c);modal.addEventListener('click',e=>{if(e.target===modal)c()});document.addEventListener('keydown',e=>{if(e.key==='Escape')c()})}
 
-function initModal(){
-  const modal=document.getElementById('figureModal');
-  if(!modal)return;
-  const close=document.getElementById('closeModal');
-  document.querySelectorAll('[data-modal-trigger]').forEach(trigger=>{
-    trigger.addEventListener('click',(event)=>{
-      event.preventDefault();
-      const card=trigger.closest('[data-modal-name]');
-      if(!card)return;
-      document.getElementById('modalTitle').textContent=card.dataset.modalName;
-      document.getElementById('modalYears').textContent=card.dataset.modalYears||'';
-      document.getElementById('modalDescription').textContent=card.dataset.modalDescription||'';
-      document.getElementById('modalInitials').textContent=card.dataset.modalInitials||'☾';
-      modal.classList.add('open');
-      close&&close.focus();
-    })
-  });
-  function c(){modal.classList.remove('open')}
-  close&&close.addEventListener('click',c);
-  modal.addEventListener('click',e=>{if(e.target===modal)c()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')c()})
-}
-
-document.addEventListener('DOMContentLoaded',()=>{renderUnifiedNav();addRoleTransliteration();initLanguage();initModal()});
+document.addEventListener('DOMContentLoaded',()=>{renderUnifiedNav();addRoleTransliteration();enrichRolePage();initLanguage();initModal()});
